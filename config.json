@@ -19,7 +19,12 @@
         "pages": [
             "Homework",
             "Programs"
-        ]
+        ],
+        "new_assignment_notification": true,
+        "edit_date_notification": true,
+        "one_day_left_notification": true,
+        "one_hour_left_notification": true,
+        "removed_assignment_notification": false
     },
     "reminders": {
         "enabled": false,
