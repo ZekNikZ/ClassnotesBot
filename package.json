@@ -1,0 +1,17 @@
+{
+  "name": "classnotesbot",
+  "version": "1.0.0",
+  "description": "A Discord bot for Baylor Computer Science reminders",
+  "main": "classnotesbot.js",
+  "dependencies": {
+    "discord.js": "^12.0.2",
+    "node-schedule": "^1.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node classnotesbot.js"
+  },
+  "author": "Matthew McCaskill",
+  "license": "MIT"
+}
