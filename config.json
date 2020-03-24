@@ -1,10 +1,14 @@
 {
+    "bot": {
+        "check_for_updates": true,
+        "check_for_updates_time": 60
+    },
     "discord": {
-        "nickname": "ClassNotes Bot",
+        "nickname": "Dr. Booth",
         "token": "NjkxODE1NjAxOTUzMzA4Njgy.Xnlf5A.sgWmPdKEiW1i00WnmclWnSQkGIk",
         "admin_role_id": "411268687064989697",
         "announcement_channel_id": "691821392630382602",
-        "command_prefix": "!",
+        "command_prefix": "b!",
         "test_message": false
     },
     "classnotes": {

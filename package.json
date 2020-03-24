@@ -1,6 +1,6 @@
 {
   "name": "classnotesbot",
-  "version": "1.0.0",
+  "version": "0.1",
   "description": "A Discord bot for Baylor Computer Science reminders",
   "main": "classnotesbot.js",
   "dependencies": {
