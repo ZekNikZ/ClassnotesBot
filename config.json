@@ -5,20 +5,30 @@
     },
     "discord": {
         "nickname": "Dr. Booth",
-        "token": "NjkxODE1NjAxOTUzMzA4Njgy.Xnlf5A.sgWmPdKEiW1i00WnmclWnSQkGIk",
+        "change_nickname": true,
+        "token": "NjkxODE1NjAxOTUzMzA4Njgy.XnrD3w.og_Z9xen2ktCxXqURJs-HPdLQb0",
         "admin_role_id": "411268687064989697",
         "announcement_channel_id": "691821392630382602",
         "command_prefix": "b!",
-        "test_message": false
+        "test_message": true
     },
     "classnotes": {
         "enabled": true,
         "check_for_updates_time": 10,
-        "username": "TBD",
-        "password": "TBD",
+        "api_path": "https://classnotes.ecs.baylor.edu/w/api.php",
+        "username": "C4C",
+        "password": "X&d^SuFKw^9V*I93%BKO",
         "pages": [
-            "Homework",
-            "Programs"
+            {
+                "page": "CSI_3344_Spring_2020_Programming_Assignments",
+                "name": "Program",
+                "enabled": true
+            },
+            {
+                "page": "CSI_3344_Spring_2020_Homework",
+                "name": "Homework",
+                "enabled": true
+            }
         ],
         "new_assignment_notification": true,
         "edit_date_notification": true,

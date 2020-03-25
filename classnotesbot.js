@@ -38,12 +38,14 @@ const logger = winston.createLogger({
     ]
 });
 
-logger.info('ClassNotesBot version 1.0.0 by Matthew McCaskill');
+const pkg = require('./package.json');
+
+logger.info(`ClassNotesBot version ${pkg.version} by Matthew McCaskill`);
 
 const Discord = require('discord.js');
 const config = require('./config.json');
 const commandHandler = require("./commands.js")
-const classnotesHooks = require('./classnotes_hook.js');
+const classnotesHooks = require('./module_classnotes.js');
 
 // Create an instance of a Discord client
 logger.info('Creating Discord bot client...');
@@ -55,7 +57,9 @@ let channel = null;
 client.on('ready', async () => {
     logger.info(`Connected to Discord servers as ${client.user.tag}.`)
 
-    logger.info(`Attempting to post test message...`);
+    if (config.discord.test_message) {
+        logger.info(`Attempting to post test message...`);
+    }
     let foundChannel = false;
     for (let guild of client.guilds.cache.array()) {
         if (guild.channels.cache.has(config.discord.announcement_channel_id)) {
@@ -89,6 +93,16 @@ client.on('ready', async () => {
                 });
             }
 
+            if (config.discord.change_nickname) {
+                logger.info('Attempting to change nickname...');
+                await (await guild.members.fetch(client.user)).setNickname(config.discord.nickname)
+                .then(() => {
+                    logger.info(`Bot nickname changed to ${config.discord.nickname}.`);
+                }).catch(err => {
+                    logger.warn('Nickname could not be changed.')
+                });
+            }
+
             announcement_channel = channel;
         } else {
             logger.warn(`Bot is part of guild "${guild.name}" which does not include the configured announcement channel.`)
@@ -105,4 +119,8 @@ client.on('ready', async () => {
 // Message listener
 client.on('message', (message) => commandHandler(message, announcement_channel));
 
-client.login(config.discord.token);
+client.login(config.discord.token).catch(err => logger.error("Invalid token."));
+
+if (config.classnotes.enabled) {
+    classnotesHooks.enable(client, channel);
+}

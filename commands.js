@@ -4,7 +4,7 @@ const logger = winston.createLogger({
     format: winston.format.combine(
         winston.format.timestamp(),
         winston.format.label({
-            label: 'bot',
+            label: 'command',
             message: false
         }),
         winston.format.printf((info) => {
@@ -60,9 +60,46 @@ newAssignment = (_1, _2, channel) => {
     embed_generator.sendNewAssignment(
         channel, 
         'Edit Distance',
-        'Daily Program',
-        'google.com',
-        '4/20/20'
+        'Program',
+        'https://classnotes.ecs.baylor.edu/wiki/Edit_Distance',
+        '3/28/2020'
+    );
+};
+editAssignment = (_1, _2, channel) => {
+    embed_generator.sendEditAssignment(
+        channel, 
+        'Edit Distance',
+        'Program',
+        'https://classnotes.ecs.baylor.edu/wiki/Edit_Distance',
+        '3/28/2020',
+        '3/31/2020'
+    );
+};
+removeAssignment = (_1, _2, channel) => {
+    embed_generator.sendRemoveAssignment(
+        channel, 
+        'Edit Distance',
+        'Program',
+        'https://classnotes.ecs.baylor.edu/wiki/Edit_Distance',
+        '3/28/2020'
+    );
+};
+warnAssignment = (_1, _2, channel) => {
+    embed_generator.sendWarnAssignment(
+        channel, 
+        'Edit Distance',
+        'Program',
+        'https://classnotes.ecs.baylor.edu/wiki/Edit_Distance',
+        '3/28/2020'
+    );
+};
+alarmAssignment = (_1, _2, channel) => {
+    embed_generator.sendAlarmAssignment(
+        channel, 
+        'Edit Distance',
+        'Program',
+        'https://classnotes.ecs.baylor.edu/wiki/Edit_Distance',
+        '3/28/2020'
     );
 };
 
@@ -74,14 +111,15 @@ function handleMessage(message, channel) {
             'stop': stop
         }
         if (process.env.NODE_ENV !== 'production') {
-            commands['newEmbed'] = newAssignment;
-            // commands['changeEmbed'] = ;
-            // commands['warnEmbed'] = ;
-            // commands['closeEmbed'] = ;
+            commands['new'] = newAssignment;
+            commands['edit'] = editAssignment;
+            commands['remove'] = removeAssignment;
+            commands['warn'] = warnAssignment;
+            commands['alarm'] = alarmAssignment;
         }
 
         parts = message.content.split(' ', 2);
-        command = parts[0].substring(1);
+        command = parts[0].substring(config.discord.command_prefix.length);
         args = parts[1];
         
         if (command in commands) {
