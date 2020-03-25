@@ -34,10 +34,12 @@
         "edit_date_notification": true,
         "one_day_left_notification": true,
         "one_hour_left_notification": true,
-        "removed_assignment_notification": false
+        "removed_assignment_notification": false,
+        "discord_manager_role_id": "411268687064989697"
     },
     "reminders": {
         "enabled": false,
-        "check_reminders_time": 1
+        "check_reminders_time": 1,
+        "dicord_manager_role_id": "411268687064989697"
     }
 }
