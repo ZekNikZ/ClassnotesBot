@@ -104,6 +104,10 @@ client.on('ready', async () => {
             }
 
             announcement_channel = channel;
+
+            if (config.classnotes.enabled) {
+                classnotesHooks.enable(client, announcement_channel);
+            }
         } else {
             logger.warn(`Bot is part of guild "${guild.name}" which does not include the configured announcement channel.`)
         }
@@ -119,8 +123,4 @@ client.on('ready', async () => {
 // Message listener
 client.on('message', (message) => commandHandler(message, announcement_channel));
 
-client.login(config.discord.token).catch(err => logger.error("Invalid token."));
-
-if (config.classnotes.enabled) {
-    classnotesHooks.enable(client, channel);
-}
+client.login(config.discord.token).catch(err => logger.error("Invalid discord token."));
