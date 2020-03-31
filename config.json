@@ -6,9 +6,9 @@
     "discord": {
         "nickname": "Dr. Booth",
         "change_nickname": true,
-        "token": "NjkxODE1NjAxOTUzMzA4Njgy.XoJcgA.SNX__KF1Wv_N6fZ3jgoXjPRwtc0",
-        "admin_role_id": "411268687064989697",
-        "announcement_channel_id": "691821392630382602",
+        "token": "token",
+        "admin_role_id": "admin role id",
+        "announcement_channel_id": "announcement channel id",
         "command_prefix": "b!",
         "test_message": true
     },

@@ -138,7 +138,7 @@ function checkForUpdates(client, channel) {
                             });
                         }
 
-                        return console.log(row);
+                        return;// console.log(row);
                     } else { // Add new row
                         anyUpdatesFound = true;
                         db.run(`INSERT INTO assignments(title, due_date, type)
@@ -174,12 +174,6 @@ function checkForUpdates(client, channel) {
 
             anyUpdatesFound = true;
         });
-
-        if (anyUpdatesFound) {
-            logger.info(`ClassNotes updates found.`);
-        } else {
-            logger.info(`No ClassNotes updates found.`);
-        }
 
         db.close((err) => {
             if (err) {
