@@ -6,15 +6,15 @@
     "discord": {
         "nickname": "Dr. Booth",
         "change_nickname": true,
-        "token": "token",
-        "admin_role_id": "admin role id",
-        "announcement_channel_id": "announcement channel id",
+        "token": "NjkxODE1NjAxOTUzMzA4Njgy.XoN5bg.7Qsw-XQthnVi08fY14Tx8oeWaQk",
+        "admin_role_id": "687420583708852309",
+        "announcement_channel_id": "691728277055864914",
         "command_prefix": "b!",
-        "test_message": true
+        "test_message": false
     },
     "classnotes": {
         "enabled": true,
-        "check_for_updates_time": 1,
+        "check_for_updates_time": 10,
         "api_path": "https://classnotes.ecs.baylor.edu/w/api.php",
         "username": "C4C",
         "password": "X&d^SuFKw^9V*I93%BKO",
